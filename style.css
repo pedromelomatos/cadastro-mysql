@@ -1,0 +1,22 @@
+html{
+    font-family: "Bebas Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+}
+
+#caixacentral{
+    display: flex;
+    height: 1000px;
+    width: 700px;
+    border: solid;
+    border-width: 2px;
+    border-color: black;
+    box-shadow: 0.3px 0.3px 0.3pc;
+}
