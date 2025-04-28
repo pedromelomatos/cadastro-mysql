@@ -55,6 +55,7 @@ body{
     font-family: "Bebas Neue", sans-serif;
     color: white;
     margin-top: 50px;
+    cursor: pointer;
 }
 
 #caixacentral .texto{
