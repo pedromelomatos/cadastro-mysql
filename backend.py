@@ -1,1 +1,0 @@
-##testando pra ver se o .gitignore está funcionando
