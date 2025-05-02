@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cadastro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -12,14 +12,24 @@
 </head>
 <body>
     <div id="caixacentral">
-        <h2 class="titulo">Login</h2>
+        <h2 class="titulo">CADASTRO</h2>
         <form action="">
+            <div id="labelinput">
+            <label for="primeironome" class="subtitulo">PRIMEIRO NOME</label>
+            <input type="text" name="primeironome" id="primeironome" class="caixainput" placeholder="Insira seu primeiro nome aqui.">
+            </div>
+            <div id="labelinput">
+            <label for="email" class="subtitulo">Email</label>
             <input type="email" name="email" id="email" class="caixainput" placeholder="Insira seu e-mail aqui.">
+            </div>
+            <div id="labelinput">
+            <label for="password" class="subtitulo">SENHA</label>
             <input type="password" name="senha" id="senha" class="caixainput" placeholder="Insira sua senha aqui.">
+            </div>
             <button class="caixainput">LOGAR</button>
         </form>
         <div class="texto">
-        <span>Não é cadastrado? <a href="">Se cadastre agora.</a></span>
+        <span>JA ESTÁ CADASTRO? <a href="{{ url_for('views.homepage') }}">Logue agora.</a></span>
         </div>
     </div>
 
