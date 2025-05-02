@@ -58,6 +58,13 @@ body{
     cursor: pointer;
 }
 
+.infos{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+
 #caixacentral .texto{
     display: flex;
     justify-content: center;
