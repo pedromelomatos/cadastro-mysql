@@ -30,10 +30,10 @@ class Usuario(db.Model):
 with app.app_context():
     #fazendo uma requisição na tabela de usuários
     usuario = db.session.query(Usuario).filter_by(email='hannah@email.com').first()
-    #Usuário definido como aquele que tem o email = 'hannah@email.com', portanto ao mudar o usuario.nome = 'Renzo', isso alterará o nome do usuário que tiver o email hannah@gmail.com
-    usuario.nome = 'Renzo'
+    #deletando a row onde o email é hannah@email.com
+    db.session.delete(usuario)
     db.session.commit()
-    print(usuario)    
+
 
 if __name__  == '__main__':
     app.run(debug=True)
