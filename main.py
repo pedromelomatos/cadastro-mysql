@@ -23,12 +23,13 @@ class Usuario(db.Model):
     nome = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(254), nullable=False, unique=True)
 
-#with app.app_context():
-    #adicionando uma row na minha tabela
-    #user = Usuario(nome='Hannah', email='hannah@email.com')
-    #db.session.add(user)
-    #db.session.commit()
-    
+    #O que o usuário vai retornar no query, nesse caso é o nome
+    def __repr__(self):
+        return f'<{self.nome}>'
+
+with app.app_context():
+    tabela = db.session.query(Usuario).all()
+    print(tabela)    
 
 if __name__  == '__main__':
     app.run(debug=True)
