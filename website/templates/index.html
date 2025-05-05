@@ -13,14 +13,14 @@
 <body>
     <div id="caixacentral">
         <h2 class="titulo">Login</h2>
-        <form action="">
+        <form action="post">
             <div id="labelinput">
             <input type="email" name="email" id="email" class="caixainput" placeholder="Insira seu e-mail aqui.">
             </div>
             <div id="labelinput">
             <input type="password" name="senha" id="senha" class="caixainput" placeholder="Insira sua senha aqui.">
             </div>
-            <button class="caixainput">LOGAR</button>
+            <button class="caixainput" type="submit">LOGAR</button>
         </form>
         <div class="texto">
         <span>Não é cadastrado? <a href="{{ url_for('views.cadastro') }}">Se cadastre agora.</a></span>

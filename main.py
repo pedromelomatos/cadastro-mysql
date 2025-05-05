@@ -22,17 +22,14 @@ class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(254), nullable=False, unique=True)
+    senha = db.Column(db.String(128), nullable=False)
 
     #O que a requisição vai retornar no query, nesse caso é o id
     def __repr__(self):
         return f'<{self.nome}>'
 
 with app.app_context():
-    #fazendo uma requisição na tabela de usuários
-    usuario = db.session.query(Usuario).filter_by(email='hannah@email.com').first()
-    #deletando a row onde o email é hannah@email.com
-    db.session.delete(usuario)
-    db.session.commit()
+    db.create_all()
 
 
 if __name__  == '__main__':

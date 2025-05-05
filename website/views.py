@@ -5,7 +5,7 @@ views = Blueprint('views', __name__)
 
 #Rotas do site
 
-@views.route("/")
+@views.route("/login")
 def homepage():
     return render_template("index.html")
 
