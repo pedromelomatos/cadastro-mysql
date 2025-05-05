@@ -23,13 +23,17 @@ class Usuario(db.Model):
     nome = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(254), nullable=False, unique=True)
 
-    #O que o usuário vai retornar no query, nesse caso é o nome
+    #O que a requisição vai retornar no query, nesse caso é o id
     def __repr__(self):
         return f'<{self.nome}>'
 
 with app.app_context():
-    tabela = db.session.query(Usuario).all()
-    print(tabela)    
+    #fazendo uma requisição na tabela de usuários
+    usuario = db.session.query(Usuario).filter_by(email='hannah@email.com').first()
+    #Usuário definido como aquele que tem o email = 'hannah@email.com', portanto ao mudar o usuario.nome = 'Renzo', isso alterará o nome do usuário que tiver o email hannah@gmail.com
+    usuario.nome = 'Renzo'
+    db.session.commit()
+    print(usuario)    
 
 if __name__  == '__main__':
     app.run(debug=True)
