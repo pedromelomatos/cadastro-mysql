@@ -1,10 +1,14 @@
 from flask import Flask, request, render_template,url_for, redirect
 from infos import user, host, senha, banco
 from database import db
+from flask_login import LoginManager
 from modelos import Usuario
 
 
 app = Flask(__name__)    
+
+#sistema responsável pelo gerenciamento do login na nossa aplicação
+lm = LoginManager(app)
 #Banco de dados:
 #conectando ao meu banco local:
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{user}:{senha}@{host}/{banco}"
