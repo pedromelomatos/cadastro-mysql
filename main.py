@@ -1,32 +1,38 @@
-from website import cria_app
-from website import views
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, request, render_template,url_for, redirect
 from infos import user, host, senha, banco
+from database import db
+from modelos import Usuario
 
 
-
-app = cria_app()
-
+app = Flask(__name__)    
 #Banco de dados:
 #conectando ao meu banco local:
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{user}:{senha}@{host}/{banco}"
 #criando uma variável que represente meu banco de dados:
-db = SQLAlchemy()
 
+#definindo que a nossa aplicação flask vai usar esse banco de dados conectado
 db.init_app(app)
 
-#criação de tabela no SQL Alchemy -> classe == tabela:
-class Usuario(db.Model):
-    __tablename__ = 'usuarios'
-    id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(30), nullable=False)
-    email = db.Column(db.String(254), nullable=False, unique=True)
-    senha = db.Column(db.String(128), nullable=False)
+@app.route("/")
+def homepage():
+    return render_template("index.html")
 
-    #O que a requisição vai retornar no query, nesse caso é o id
-    def __repr__(self):
-        return f'<{self.nome}>'
+@app.route("/cadastro", methods=['GET','POST'])
+def cadastro():
+    if request.method == 'POST':
+        primeironome = request.form['primeironome']
+        email = request.form['email']
+        senha = request.form['senha']
+        #criando uma variável que salve todas as infos do usuario - criando uma row onde nome = primeironome (variável que armazenou o nome que o usuário digitou), email = email (digitado pelo usuario) e senha = senha (digitada pelo usuario)
+        novo_usuario = Usuario(nome=primeironome, email=email, senha=senha)
+        #adicionando na tabela
+        db.session.add(novo_usuario)
+        #commitando as mudanças
+        db.session.commit()
+        print(novo_usuario)
+        return redirect(url_for('homepage'))
+    elif request.method == 'GET':
+        return render_template("cadastro.html")
 
 with app.app_context():
     db.create_all()
@@ -34,6 +40,11 @@ with app.app_context():
 
 if __name__  == '__main__':
     app.run(debug=True)
+
+
+
+        
+    
 
 
 #main
