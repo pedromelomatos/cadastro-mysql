@@ -29,7 +29,6 @@ def homepage():
     if request.method == 'GET':
         return render_template("index.html")
     elif request.method=='POST':
-        #LOGIN:
         email= request.form['email']
         senha=request.form['senha']
         #procurando no banco de dados se tem um usuário com esse email e senha
@@ -38,12 +37,13 @@ def homepage():
         if not usuario_db:
             return 'Informações de Login inválidas.'
         #agora se as infos de login foram encontrados na base de dados:
-        login_user(usuario_db) #logando o usuário
-        return redirect(url_for('bemvindo'))
+        login_user(usuario_db)
+        next_page = request.args.get('next')
+        return redirect(next_page or url_for('bemvindo'))
     
 
 @app.route("/perfil")
-@login_required #só entra em /perfil quem estiver logado, que é feito pela função login_user()
+@login_required
 def bemvindo():
     return render_template('infos.html')
 

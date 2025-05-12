@@ -14,3 +14,5 @@ class Usuario(UserMixin, db.Model):
     #O que a requisição vai retornar no query, nesse caso é o id
     def __repr__(self):
         return f'<{self.nome}>'
+    
+#models
