@@ -1,8 +1,9 @@
 from flask import Flask, request, render_template,url_for, redirect
 from infos import user, host, senha, banco, secretkey
 from database import db
-from flask_login import LoginManager, login_user, login_required, logout_user
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from modelos import Usuario
+import hashlib
 
 
 app = Flask(__name__)    
@@ -16,6 +17,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{user}:{senha}@{host}/
 
 #definindo que a nossa aplicação flask vai usar esse banco de dados conectado
 db.init_app(app)
+
+#função pra criptografar a senha quando ela for enviada pro banco de dados
+def hash(txt):
+    hash_obj = hashlib.sha256(txt.encode('utf-8'))
+    return hash_obj.hexdigest()
 
 lm.login_view = '/'
 
@@ -31,7 +37,7 @@ def homepage():
     elif request.method=='POST':
         #LOGIN:
         email= request.form['email']
-        senha=request.form['senha']
+        senha=hash(request.form['senha'])
         #procurando no banco de dados se tem um usuário com esse email e senha
         usuario_db = db.session.query(Usuario).filter_by(email=email, senha=senha).first()  
         #se não encontrar ninguém registrado com esse email e senha:
@@ -45,7 +51,10 @@ def homepage():
 @app.route("/perfil")
 @login_required #só entra em /perfil quem estiver logado, que é feito pela função login_user()
 def bemvindo():
-    return render_template('infos.html')
+    nome = current_user.nome
+    email = current_user.email
+    senha = current_user.senha
+    return render_template('infos.html', nome=nome, email=email, senha=senha)
 
 @app.route("/cadastro", methods=['GET','POST'])
 def cadastro():
@@ -56,7 +65,7 @@ def cadastro():
         email = request.form['email']
         senha = request.form['senha']
         #criando uma variável que salve todas as infos do usuario - criando uma row onde nome = primeironome (variável que armazenou o nome que o usuário digitou), email = email (digitado pelo usuario) e senha = senha (digitada pelo usuario)
-        novo_usuario = Usuario(nome=primeironome, email=email, senha=senha)
+        novo_usuario = Usuario(nome=primeironome, email=email, senha=hash(senha))
         #adicionando na tabela
         db.session.add(novo_usuario)
         #commitando as mudanças

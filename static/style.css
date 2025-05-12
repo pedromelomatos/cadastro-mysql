@@ -68,8 +68,11 @@ body{
 #caixacentral .texto{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin-top: 50px;
     font-size: 25px;
+    align-items: center;
+
 }
 
 .subtitulo{

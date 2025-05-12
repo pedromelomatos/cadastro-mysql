@@ -12,13 +12,12 @@
 </head>
 <body>
     <div id="caixacentral">
-        <h2 class="titulo">Olá, <span id="nome"></span>!</h2>
+        <h2 class="titulo">Olá, {{ nome }}!</h2>
         <div class="infos">
-        <div class="texto">Seu email: <span id="email"></span></div>
-        <div class="texto">Sua senha: <span id="senha"></span></div>
+        <div class="texto">Seu email: {{ email }}</div>
         </div>
         <div class="texto">
-        <span>Tem outra conta? <a href="{{ url_for('homepage') }}">Logue agora.</a></span>
+        <span>Tem outra conta? <a href="{{ url_for('logout') }}">Logue agora.</a></span>
         </div>
     </div>
 
