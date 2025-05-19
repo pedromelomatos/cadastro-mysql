@@ -21,7 +21,6 @@ lm = LoginManager(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{user}:{senha}@{host}/{banco}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# --- ADICIONE ESTAS DUAS LINHAS ABAIXO ---
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     "pool_pre_ping": True,  
     "pool_recycle": 280    
