@@ -1,2 +1,42 @@
 # cadastro_mysql
- Repositório destinado a armazenar códigos de um projeto que visa criar um site o qual recebe o cadastro de usuários, os salva em um banco de dados em MySQL. O backend é feito em Python e o frontend em HTML e CSS.
+
+Esse projeto é uma aplicação web desenvolvida com Flask (Python) que implementa um sistema completo de cadastro, autenticação e gerenciamento de sessões de usuários, com integração a um banco de dados MySQL.
+
+🛠️ Funcionalidades
+🔹 Cadastro de novos usuários com nome, email e senha
+
+🔹 Criptografia de senhas com SHA-256 antes de armazenar no banco
+
+🔹 Login com verificação de credenciais
+
+🔹 Sessão autenticada com Flask-Login
+
+🔹 Proteção de rotas: acesso a páginas privadas somente para usuários logados
+
+🔹 Logout com destruição segura da sessão
+
+🔹 Armazenamento de dados com SQLAlchemy e conexão ao banco via variáveis de ambiente
+
+💡 Tecnologias utilizadas
+🔹 Flask (framework web)
+
+🔹 Flask-Login (gerenciamento de sessões)
+
+🔹 SQLAlchemy (ORM)
+
+🔹 MySQL com PyMySQL
+
+🔹 Hashlib (criptografia de senha)
+
+🔹 HTML + Jinja2 para os templates
+
+🌐 Estrutura básica
+🔹 index.html: página inicial e de login
+
+🔹 cadastro.html: formulário de registro
+
+🔹 invalido.html: página exibida em caso de falha no login
+
+🔹 database.py: configuração do SQLAlchemy
+
+🔹 modelos.py: definição do modelo Usuario
