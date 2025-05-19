@@ -3,6 +3,7 @@
 Esse projeto é uma aplicação web desenvolvida com Flask (Python) que implementa um sistema completo de cadastro, autenticação e gerenciamento de sessões de usuários, com integração a um banco de dados MySQL.
 
 🛠️ Funcionalidades
+
 🔹 Cadastro de novos usuários com nome, email e senha
 
 🔹 Criptografia de senhas com SHA-256 antes de armazenar no banco
@@ -18,6 +19,7 @@ Esse projeto é uma aplicação web desenvolvida com Flask (Python) que implemen
 🔹 Armazenamento de dados com SQLAlchemy e conexão ao banco via variáveis de ambiente
 
 💡 Tecnologias utilizadas
+
 🔹 Flask (framework web)
 
 🔹 Flask-Login (gerenciamento de sessões)
@@ -31,6 +33,7 @@ Esse projeto é uma aplicação web desenvolvida com Flask (Python) que implemen
 🔹 HTML + Jinja2 para os templates
 
 🌐 Estrutura básica
+
 🔹 index.html: página inicial e de login
 
 🔹 cadastro.html: formulário de registro
