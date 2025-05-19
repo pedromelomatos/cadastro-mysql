@@ -2,7 +2,9 @@
 
 Esse projeto é uma aplicação web desenvolvida com Flask (Python) que implementa um sistema completo de cadastro, autenticação e gerenciamento de sessões de usuários, com integração a um banco de dados MySQL.
 
-🛠️ Funcionalidades
+👉 [Acesse o site clicando aqui](https://pedromelo.pythonanywhere.com/)
+
+🛠️ **Funcionalidades**
 
 🔹 Cadastro de novos usuários com nome, email e senha
 
@@ -18,7 +20,7 @@ Esse projeto é uma aplicação web desenvolvida com Flask (Python) que implemen
 
 🔹 Armazenamento de dados com SQLAlchemy e conexão ao banco via variáveis de ambiente
 
-💡 Tecnologias utilizadas
+💡 **Tecnologias utilizadas**
 
 🔹 Flask (framework web)
 
@@ -32,7 +34,7 @@ Esse projeto é uma aplicação web desenvolvida com Flask (Python) que implemen
 
 🔹 HTML + Jinja2 para os templates
 
-🌐 Estrutura básica
+🌐 **Estrutura básica**
 
 🔹 index.html: página inicial e de login
 
