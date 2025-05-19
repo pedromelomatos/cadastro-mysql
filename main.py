@@ -1,9 +1,15 @@
 from flask import Flask, request, render_template,url_for, redirect, flash
-from infos import user, host, senha, banco, secretkey
 from database import db
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from modelos import Usuario
 import hashlib
+import os
+
+user = os.getenv("DB_USER")
+senha = os.getenv("DB_PASSWORD")
+host = os.getenv("DB_HOST")
+banco = os.getenv("DB_NAME")
+secretkey = os.getenv("SECRET_KEY")
 
 
 app = Flask(__name__)    
