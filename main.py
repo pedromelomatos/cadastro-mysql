@@ -19,7 +19,13 @@ lm = LoginManager(app)
 #Banco de dados:
 #conectando ao meu banco local:
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{user}:{senha}@{host}/{banco}"
-#criando uma variável que represente meu banco de dados:
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# --- ADICIONE ESTAS DUAS LINHAS ABAIXO ---
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    "pool_pre_ping": True,  
+    "pool_recycle": 280    
+}
 
 #definindo que a nossa aplicação flask vai usar esse banco de dados conectado
 db.init_app(app)
@@ -97,7 +103,8 @@ if __name__  == '__main__':
 
 
         
-    
+
+
 
 
 #main
