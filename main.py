@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template,url_for, redirect
+from flask import Flask, request, render_template,url_for, redirect, flash
 from infos import user, host, senha, banco, secretkey
 from database import db
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
@@ -42,7 +42,7 @@ def homepage():
         usuario_db = db.session.query(Usuario).filter_by(email=email, senha=senha).first()  
         #se não encontrar ninguém registrado com esse email e senha:
         if not usuario_db:
-            return 'Informações de Login inválidas.'
+            return render_template("invalido.html")
         #agora se as infos de login foram encontrados na base de dados:
         login_user(usuario_db) #logando o usuário
         return redirect(url_for('bemvindo'))
