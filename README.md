@@ -1,47 +1,79 @@
-# cadastro_mysql
+# 🔐 cadastro_mysql
 
-Esse projeto é uma aplicação web desenvolvida com Flask (Python) que implementa um sistema completo de cadastro, autenticação e gerenciamento de sessões de usuários, com integração a um banco de dados MySQL.
+**Sistema de Cadastro e Login com Flask**
 
-👉 [Acesse o site clicando aqui](https://pedromelo.pythonanywhere.com/)
+Este projeto é uma aplicação web desenvolvida com **Flask (Python)** que implementa um sistema completo de **cadastro, autenticação e gerenciamento de sessões de usuários**, com integração a um **banco de dados MySQL**.
 
-🛠️ **Funcionalidades**
+---
 
-🔹 Cadastro de novos usuários com nome, email e senha
+## 🛠️ Funcionalidades
 
-🔹 Criptografia de senhas com SHA-256 antes de armazenar no banco
+* 🔹 Cadastro de novos usuários com nome, email e senha
+* 🔹 Criptografia de senhas com **SHA-256** antes de armazenar no banco
+* 🔹 Login com verificação de credenciais
+* 🔹 Sessão autenticada com **Flask-Login**
+* 🔹 Proteção de rotas: acesso a páginas privadas somente para usuários logados
+* 🔹 Logout com destruição segura da sessão
+* 🔹 Armazenamento de dados com **SQLAlchemy** e conexão ao banco via variáveis de ambiente
 
-🔹 Login com verificação de credenciais
+---
 
-🔹 Sessão autenticada com Flask-Login
+## 💡 Tecnologias utilizadas
 
-🔹 Proteção de rotas: acesso a páginas privadas somente para usuários logados
+* 🔹 **Flask** (framework web)
+* 🔹 **Flask-Login** (gerenciamento de sessões)
+* 🔹 **SQLAlchemy** (ORM)
+* 🔹 **MySQL** com **PyMySQL**
+* 🔹 **Hashlib** (criptografia de senha)
+* 🔹 **HTML + Jinja2** para os templates
 
-🔹 Logout com destruição segura da sessão
+---
 
-🔹 Armazenamento de dados com SQLAlchemy e conexão ao banco via variáveis de ambiente
+## 🌐 Estrutura básica
 
-💡 **Tecnologias utilizadas**
+* 🔹 `index.html`: página inicial e de login
+* 🔹 `cadastro.html`: formulário de registro
+* 🔹 `infos.html`: página protegida com dados do usuário logado
+* 🔹 `invalido.html`: página exibida em caso de falha no login
+* 🔹 `database.py`: configuração do SQLAlchemy
+* 🔹 `modelos.py`: definição do modelo `Usuario`
 
-🔹 Flask (framework web)
+---
 
-🔹 Flask-Login (gerenciamento de sessões)
+## ▶️ Como executar o projeto
 
-🔹 SQLAlchemy (ORM)
+1. Clone o repositório:
 
-🔹 MySQL com PyMySQL
+   ```bash
+   git clone https://github.com/pedromelomatos/cadastro-mysql.git
+   ```
 
-🔹 Hashlib (criptografia de senha)
+2. Crie e ative um ambiente virtual:
 
-🔹 HTML + Jinja2 para os templates
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   venv\\Scripts\\activate     # Windows
+   ```
 
-🌐 **Estrutura básica**
+3. Instale as dependências:
 
-🔹 index.html: página inicial e de login
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-🔹 cadastro.html: formulário de registro
+4. Configure as variáveis de ambiente:
 
-🔹 invalido.html: página exibida em caso de falha no login
+   ```text
+   DB_USER
+   DB_PASSWORD
+   DB_HOST
+   DB_NAME
+   SECRET_KEY
+   ```
 
-🔹 database.py: configuração do SQLAlchemy
+5. Execute a aplicação:
 
-🔹 modelos.py: definição do modelo Usuario
+   ```bash
+   python main.py
+   ```
