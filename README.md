@@ -4,6 +4,8 @@
 
 Este projeto é uma aplicação web desenvolvida com **Flask (Python)** que implementa um sistema completo de **cadastro, autenticação e gerenciamento de sessões de usuários**, com integração a um **banco de dados MySQL**.
 
+👉 [Acesse o site clicando aqui](https://pedromelo.pythonanywhere.com/)
+
 ---
 
 ## 🛠️ Funcionalidades
@@ -40,40 +42,3 @@ Este projeto é uma aplicação web desenvolvida com **Flask (Python)** que impl
 
 ---
 
-## ▶️ Como executar o projeto
-
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/pedromelomatos/cadastro-mysql.git
-   ```
-
-2. Crie e ative um ambiente virtual:
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Linux/Mac
-   venv\\Scripts\\activate     # Windows
-   ```
-
-3. Instale as dependências:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Configure as variáveis de ambiente:
-
-   ```text
-   DB_USER
-   DB_PASSWORD
-   DB_HOST
-   DB_NAME
-   SECRET_KEY
-   ```
-
-5. Execute a aplicação:
-
-   ```bash
-   python main.py
-   ```
